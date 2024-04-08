@@ -1,0 +1,32 @@
+.hero-video {
+    height: 60vh;
+    color: white;
+    position: relative;
+    opacity: 1;
+}
+
+.hero-video::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 21, 37, .8);
+    z-index: -1;
+}
+.video-words {
+    margin: 0 auto;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
