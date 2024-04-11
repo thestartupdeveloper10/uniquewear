@@ -24,4 +24,10 @@ router.get('/product_check',(req, res) => {
 router.get('/women_jewelary',(req, res) => {
     res.render('women_jewelary')
 })
+
+router.get('/women',(req, res) => {
+    res.render('women_intro')
+})
+
+
 module.exports = router;
