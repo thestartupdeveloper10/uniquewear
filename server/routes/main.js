@@ -29,5 +29,9 @@ router.get('/women',(req, res) => {
     res.render('women_intro')
 })
 
+router.get('/login',(req, res) => {
+    res.render('login')
+})
+
 
 module.exports = router;
