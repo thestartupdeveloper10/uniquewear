@@ -45,4 +45,8 @@ router.get('/collections',(req, res) => {
     res.render('collections')
 })
 
+router.get('/swiper',(req, res) => {
+    res.render('swiper')
+})
+
 module.exports = router;
