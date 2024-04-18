@@ -33,5 +33,16 @@ router.get('/login',(req, res) => {
     res.render('login')
 })
 
+router.get('/cart',(req, res) => {
+    res.render('cart')
+})
+
+router.get('/products',(req, res) => {
+    res.render('grid_products')
+})
+
+router.get('/collections',(req, res) => {
+    res.render('collections')
+})
 
 module.exports = router;
