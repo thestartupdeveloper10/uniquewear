@@ -21,12 +21,14 @@ router.get('/men/men_watches',(req, res) => {
 router.get('/product_check',(req, res) => {
     res.render('product_check')
 })
-router.get('/women_jewelary',(req, res) => {
-    res.render('women_jewelary')
-})
+
 
 router.get('/women',(req, res) => {
     res.render('women_intro')
+})
+
+router.get('/women/women_jewelary',(req, res) => {
+    res.render('women_jewelary')
 })
 
 router.get('/login',(req, res) => {

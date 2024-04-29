@@ -5,4 +5,4 @@ import {
     initTWE,
   } from "tw-elements";
   
-  initTWE({ Input, Ripple });
+initTWE({ Input, Ripple });
