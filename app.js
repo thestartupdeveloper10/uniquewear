@@ -5,6 +5,7 @@ const express = require('express')
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path')
 const app = express()
+const connectDb = require('./server/config/db')
 const port = 3000
 
 
@@ -23,6 +24,7 @@ app.use(express.static(__dirname + "/public", {
 app.get('/', (req, res) => 
 res.render('index')
 )
+connectDb();
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 app.use('/',require('./server/routes/main'));
