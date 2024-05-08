@@ -6,9 +6,13 @@ const expressLayouts = require('express-ejs-layouts');
 const path = require('path')
 const app = express()
 const connectDb = require('./server/config/db')
+const methodOverride = require('method-override');
+
+
 const port = 3000
 
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main');
@@ -27,4 +31,6 @@ res.render('index')
 connectDb();
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
+app.use(methodOverride('_method'));
+connectDb();
 app.use('/',require('./server/routes/main'));
