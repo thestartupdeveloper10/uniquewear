@@ -34,3 +34,9 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 app.use(methodOverride('_method'));
 connectDb();
 app.use('/',require('./server/routes/main'));
+app.use('/',require('./server/routes/admin'));
+
+// 404 page
+app.use((req, res) => {
+    res.status(404).render('404');
+  });
