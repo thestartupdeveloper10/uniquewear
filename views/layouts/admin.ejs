@@ -6,17 +6,9 @@
     <title><%= locals.title %></title>
     <meta name="description" content="<%= locals.description %>">
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="/styles/adminStyles.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   
-
-    <!-- Reset -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
-
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
-    <!-- <script type="text/javascript" defer src="/js/script.js"></script> -->
 </head>
 <body> 
     <%- include('../partials/adminHeader.ejs')  %>
@@ -26,8 +18,11 @@
             
             <%- body %>
             </main>
-            <%- include('../partials/footer.ejs')  %>
+           
     </div>
     <script src="/js/nav.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

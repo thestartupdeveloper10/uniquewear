@@ -1,0 +1,100 @@
+<section class="content-main">
+    <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-9">
+                <div class="content-header">
+                    <h2 class="content-title">Add New Product</h2>
+                    <div>
+                        <!-- <button class="btn btn-light rounded font-sm mr-5 text-body hover-up">Save to draft</button> -->
+                        <button onclick="validate()" class="btn btn-md rounded font-sm hover-up"
+                            type="submit">Publish</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Basic</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-4">
+                                <label for="product_name" class="form-label">Product title</label>
+                                <input name="product_name" required="true" type="text" placeholder="Type here"
+                                    class="form-control" id="name" maxlength="20">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Full description</label>
+                                <textarea name="description" placeholder="Type here" class="form-control" rows="4"
+                                    id="description"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Regular price</label>
+                                        <div class="row gx-2">
+                                            <input name="regular_price" required="true" required="true"
+                                                placeholder="$" type="text" class="form-control" id="Rprice">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Sale price</label>
+                                        <input name="sale_price" required="true" placeholder="$" type="text"
+                                            class="form-control" id="Pprice">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Units</label>
+                                        <input name="units" required="true" type="number" class="form-control"
+                                            id="unit">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div> <!-- card end// -->
+            </div>
+            <div class="col-lg-3">
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <h4>Choose images</h4>
+                    </div>
+                    <div class="border row">
+                        <div id="addedImagesContainer" class="thumbnails-container"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-upload">
+                            <img src="assets/imgs/theme/upload.svg" alt="">
+                            <input class="form-control border" name="image" id="imageInput" type="file" multiple>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Organization</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gx-2">
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Category</label>
+                                <select class="form-select border" id="category" style="width: 150px;"
+                                    name="category">
+                                    
+                                        <option value="sports">
+                                            
+                                        </option>
+
+                                </select>
+                            </div>
+                        </div> <!-- row.// -->
+                    </div>
+                </div> <!-- card end// -->
+            </div>
+        </div>
+        <p id="err-msg" class="text-danger"></p>
+    </form>
+</section>

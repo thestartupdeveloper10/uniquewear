@@ -9,6 +9,45 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model Product {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  color  Color
+  size   String
+  price  Int
+  rating Float
+  description String
+  category String
+  collection String
+  photos Photo[]
+}
+
+model Order {
+  id              String   @id
+  product         Product  @relation(fields: [productId], references: [id])
+  productId       String   
+  shippingAddress Address
+  billingAddress  Address?
+}
+
+enum Color {
+  Red
+  Green
+  Blue
+}
+
+type Photo {
+  height Int
+  width  Int
+  url    String
+}
+
+type Address {
+  street String
+  city   String
+  zip    String
 }

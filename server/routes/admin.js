@@ -13,6 +13,47 @@ router.get('/admin',(req, res) => {
     })
 })
 
+router.get('/admin/products',(req, res) => {
+    res.render('admin/products',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/users',(req, res) => {
+    res.render('admin/users',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/user',(req, res) => {
+    res.render('admin/user',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/newUser',(req, res) => {
+    res.render('admin/createUser',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/newProduct',(req, res) => {
+    res.render('admin/newProduct',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/settings',(req, res) => {
+    res.render('admin/settings',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/addProduct',(req, res) => {
+    res.render('admin/addProduct',{
+        layout: adminLayout
+    })
+})
 router.get('/men',(req, res) => {
     res.render('men_intro')
 })
