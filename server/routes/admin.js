@@ -13,11 +13,44 @@ router.get('/admin',(req, res) => {
     })
 })
 
-router.get('/admin/products',(req, res) => {
-    res.render('admin/products',{
+router.get('/admin/dashboard',(req, res) => {
+    res.render('admin/dashboard',{
         layout: adminLayout
     })
 })
+
+
+// products
+
+// working
+router.get('/admin/productList',(req, res) => {
+    res.render('admin/productList',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/addProduct',(req, res) => {
+    res.render('admin/addProduct',{
+        layout: adminLayout
+    })
+})
+
+router.get('/admin/updateProduct',(req, res) => {
+    res.render('admin/updateProduct',{
+        layout: adminLayout
+    })
+})
+
+
+// orders
+router.get('/admin/orderList',(req, res) => {
+    res.render('admin/orderList',{
+        layout: adminLayout
+    })
+})
+
+
+
 
 router.get('/admin/users',(req, res) => {
     res.render('admin/users',{
@@ -37,11 +70,7 @@ router.get('/admin/newUser',(req, res) => {
     })
 })
 
-router.get('/admin/newProduct',(req, res) => {
-    res.render('admin/newProduct',{
-        layout: adminLayout
-    })
-})
+
 
 router.get('/admin/settings',(req, res) => {
     res.render('admin/settings',{
@@ -49,35 +78,8 @@ router.get('/admin/settings',(req, res) => {
     })
 })
 
-router.get('/admin/addProduct',(req, res) => {
-    res.render('admin/addProduct',{
-        layout: adminLayout
-    })
-})
-router.get('/men',(req, res) => {
-    res.render('men_intro')
-})
-
-router.get('/men/tuxedo',(req, res) => {
-    res.render('men_tuxedo')
-})
-
-router.get('/men/men_watches',(req, res) => {
-    res.render('men_watches')
-})
-
-router.get('/product_check',(req, res) => {
-    res.render('product_check')
-})
 
 
-router.get('/women',(req, res) => {
-    res.render('women_intro')
-})
-
-router.get('/women/women_jewelary',(req, res) => {
-    res.render('women_jewelary')
-})
 
 
 module.exports = router;
