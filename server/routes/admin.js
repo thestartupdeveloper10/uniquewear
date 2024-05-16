@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
-const Product = require('../models/Product')
+const Products = require('../models/Product')
 const multer = require('multer') 
 const crypto = require('crypto') 
 const sharp = require('sharp') 
@@ -35,15 +35,25 @@ router.get('/admin/dashboard',(req, res) => {
 // products
 
 // working
-router.get('/admin/productList',(req, res) => {
+router.get('/admin/productList', async (req, res) => {
+    const products = await Products.find();
+    for (let product of products) {
+        product.imgUrl = await getObjectSignedUrl(product.img)
+      }
     res.render('admin/productList',{
-        layout: adminLayout
+        layout: adminLayout,
+        products
     })
 })
 
-router.get('/admin/addProduct',(req, res) => {
+router.get('/admin/addProduct', async (req, res) => {
+
+    
+
+
     res.render('admin/addProduct',{
-        layout: adminLayout
+        layout: adminLayout,
+        
     })
 })
 
@@ -75,7 +85,7 @@ router.post('/admin/addProduct', upload.single('image'), async (req, res) => {
         await uploadFile(fileBuffer, imageName, file.mimetype);
 
         // Create the product object with the required properties
-        const newProduct = new Product({
+        const newProduct = new Products({
             title,
             desc,
             img: imageName, // Assign the generated image name to the img property
@@ -97,18 +107,18 @@ router.post('/admin/addProduct', upload.single('image'), async (req, res) => {
 });
 
 
-  router.delete('/admin/addProduct/:id', async (req, res) => {
+  router.delete('/admin/updateProduct/:id', async (req, res) => {
     try {
       // Find the blog post by ID
-      const product = await Product.findById(req.params.id);
+      const product = await Products.findById(req.params.id);
   
       // If the blog post doesn't exist, return a 404 Not Found error
       if (!product) {
         return res.status(404).send('Product not found');
       }
-      await deleteFile(post.imageName)
+      await deleteFile(product.img)
       // Delete the blog post from the database
-      await Product.findByIdAndDelete(req.params.id);
+      await Products.findByIdAndDelete(req.params.id);
     //   res.redirect('/home');
          res.status(200).json("Product Removed");
     } catch (error) {
@@ -117,9 +127,9 @@ router.post('/admin/addProduct', upload.single('image'), async (req, res) => {
     }
   });
 
-  router.put('/admin/addProduct/:id', async (req, res) => {
+  router.put('/admin/updateProduct/:id', async (req, res) => {
     try {
-        await Product.findByIdAndUpdate(req.params.id, {
+        await Products.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
         desc: req.body.desc,
         img: req.body.img,
