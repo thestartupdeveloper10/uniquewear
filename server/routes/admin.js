@@ -36,7 +36,7 @@ router.get('/admin/dashboard',(req, res) => {
 
 // working
 router.get('/admin/productList', async (req, res) => {
-    const products = await Products.find();
+    const products = await Products.find().sort({createdAt: -1});
     for (let product of products) {
         product.imgUrl = await getObjectSignedUrl(product.img)
       }
@@ -48,9 +48,6 @@ router.get('/admin/productList', async (req, res) => {
 
 router.get('/admin/addProduct', async (req, res) => {
 
-    
-
-
     res.render('admin/addProduct',{
         layout: adminLayout,
         
@@ -58,40 +55,43 @@ router.get('/admin/addProduct', async (req, res) => {
 })
 
 
-router.get('/admin/updateProduct',(req, res) => {
+router.get('/admin/updateProduct',async (req, res) => {
+    const product = await Products.findById(req.params.id);
     res.render('admin/updateProduct',{
-        layout: adminLayout
+        layout: adminLayout,
+        product
     })
 })
 
 
 router.post('/admin/addProduct', upload.single('image'), async (req, res) => {
     try {
-        const { title, desc, categories, size, color, price, stock } = req.body;
+        const { title, desc, categories,collections, size, color, price, stock } = req.body;
         const file = req.file;
 
-        if (!title || !desc || !categories || !size || !color || !price || !stock || !file) {
-            return res.status(400).send('All fields are required');
-        }
+        // if (!title || !desc || !categories || !collections || !size || !color || !price || !stock || !file) {
+        //     return res.status(400).send('All fields are required');
+        // }
 
         const imageName = generateFileName(); // Generate a unique file name for the image
 
         // Resize and process the image using Sharp
-        const fileBuffer = await sharp(file.buffer)
-            .resize({ height: 1920, width: 1080, fit: "contain" })
-            .toBuffer();
+        // const fileBuffer = await sharp(file.buffer)
+        //     .resize({ height: 1920, width: 1080, fit: "contain" })
+        //     .toBuffer();
 
         // Upload the processed image to your storage service
-        await uploadFile(fileBuffer, imageName, file.mimetype);
+        await uploadFile(file.buffer, imageName, file.mimetype);
 
         // Create the product object with the required properties
         const newProduct = new Products({
             title,
             desc,
             img: imageName, // Assign the generated image name to the img property
-            categories,
-            size,
-            color,
+            categories: Array.isArray(categories) ? categories : [categories],
+            collections: Array.isArray(collections) ? collections : [collections],
+            size: Array.isArray(size) ? size : [size],
+            color: Array.isArray(color) ? color : [color],
             price,
             inStock: stock
         });
@@ -119,8 +119,8 @@ router.post('/admin/addProduct', upload.single('image'), async (req, res) => {
       await deleteFile(product.img)
       // Delete the blog post from the database
       await Products.findByIdAndDelete(req.params.id);
-    //   res.redirect('/home');
-         res.status(200).json("Product Removed");
+      res.redirect('/admin/productList');
+        //  res.status(200).json("Product Removed");
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');

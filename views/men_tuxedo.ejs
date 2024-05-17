@@ -18,16 +18,17 @@
 
     </div>
     <div class="third-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-1 mt-1">
-      <div class="man-3 lg:col-span-3 relative w-full">
-        <img src="../imgs/men/tuxedo/white2.jpg" alt="" class="bg-cover bg-no-repeat h-full">
-        <button class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150">White Dinner Jacket</button>
-      </div>
-      <div class="man-3 lg:col-span-3 relative w-full">
-        <img src="../imgs/men/tuxedo/suite-bow.jpg" alt="" class="bg-cover bg-no-repeat h-full">
-        <button class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150">Fashion Tuxedo</button>
-      </div>
-      <div class="man-3 lg:col-span-3 relative w-full">
-        <img src="../imgs/men/tuxedo/blacksuit.jpg" alt="" class="bg-cover bg-no-repeat h-full">
-        <button class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150">Velvet Tuxedo</button>
-      </div>
+      <% tuxedos.forEach(tuxedo => { %>
+        <div class="man-3 lg:col-span-3 relative w-full">
+          <img src="<%=tuxedo.imgUrl%>" alt="" class="bg-cover bg-no-repeat h-full">
+          <button class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150"><%= tuxedo.title %></button>
+        </div>
+      <% }) %>
+      
+    </div>
+
+    <div class="flex justify-center items-center w-full mt-6">
+      <form action="/men/tuxedo/all" method="GET">
+        <input type="submit" value="View All" class="bg-green-500 px-5 py-3 btn cursor-pointer">
+      </form>
     </div>

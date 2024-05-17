@@ -5,20 +5,23 @@
 <p class="text-center font-mono mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quibusdam? Culpa ab dolor veniam architecto enim possimus reprehenderit id repellat consequatur obcaecati explicabo itaque corporis laboriosam ipsa eaque, perspiciatis veritatis.</p>
     </div>
   </div>
-      <div class="first-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-1 mt-1">
-      <div class="women lg:col-span-4 relative w-full">
+  <div class="first-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-1 mt-1 h-[480px]">
+    <% if (tuxedoProduct) { %>
+      <div class="tuxedo lg:col-span-4 relative w-full h-[480px]">
         <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
-          <img src="../imgs/men/man-landscape.jpg" alt="" class="bg-cover bg-no-repeat h-full object-cover">
-          <button class="absolute md:bottom-12 bottom-8 z-10 translate-x-[-50%] left-[50%] bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150">Women</button>
+        <img src="<%= tuxedoProduct.imgUrl %>" alt="" class="h-full bg-cover bg-no-repeat object-cover w-full" height="400px">
+        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/watch"><%= tuxedoProduct.title %></a>
       </div>
-      <div class="men lg:col-span-2 relative">
-        <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
-        <img src="../imgs/men/india-5342927_1280.jpg" alt="" class="bg-cover bg-no-repeat h-full">
-        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/tuxedo">Tuxedo</a>
-        
-      </div>
+    <% } %>
   
+    <% if (watchProduct) { %>
+      <div class="watch lg:col-span-2 relative h-[480px]">
+        <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
+        <img src="<%= watchProduct.imgUrl %>" alt="" class="h-full bg-cover bg-no-repeat object-cover w-full" height="400px">
+        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/watch"><%= watchProduct.title %></a>
       </div>
+    <% } %>
+  </div>
       <div class="third-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-1 mt-1">
         <div class="man-3 lg:col-span-3 relative w-full">
           <img src="../imgs/men/shoes.jpg" alt="" class="bg-cover bg-no-repeat h-full">

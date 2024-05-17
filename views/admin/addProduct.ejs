@@ -9,92 +9,48 @@
 </head>
 <body class="bg-gray-100">
 
-
-
-
-
-<!-- strat wrapper -->
 <div class="h-screen flex flex-row flex-wrap">
   
-    <!-- start sidebar -->
-   <!-- start sidebar -->
-   <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">
-    
-
-    <!-- sidebar content -->
+  <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">
     <div class="flex flex-col">
-
-      <!-- sidebar toggle -->
       <div class="text-right hidden md:block mb-4">
         <button id="sideBarHideBtn">
           <i class="fad fa-times-circle"></i>
         </button>
       </div>
-      <!-- end sidebar toggle -->
-
       <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">homes</p>
-
-      <!-- link -->
       <a href="/admin" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-chart-pie text-xs mr-2"></i> 
         ecommerce dashboard               
-        
       </a>
-      <!-- end link -->
-
-      <!-- link -->
       <a href="/admin/dashboard" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-shopping-cart text-xs mr-2"></i>
         Analytics dashboard
       </a>
-      <!-- end link -->
-
       <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">apps</p>
-
-      <!-- link -->
       <a href="/admin/productList" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-file-invoice-dollar text-xs mr-2"></i>
         Products
       </a>
-      <!-- end link -->
-
-      <!-- link -->
       <a href="/admin/users" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-comments text-xs mr-2"></i>
         Users
       </a>
-      <!-- end link -->
-
-      <!-- link -->
       <a href="/admin/orderList" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-shield-check text-xs mr-2"></i>
         Orders
       </a>
-      <!-- end link -->
-
-      <!-- link -->
       <a href="#" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-calendar-edit text-xs mr-2"></i>
         calendar
       </a>
-      <!-- end link -->
-
-      <!-- link -->
       <a href="#" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-file-invoice-dollar text-xs mr-2"></i>
         invoice
       </a>
-     
-      
-
     </div>
-    <!-- end sidebar content -->
-
   </div>
-  <!-- end sidbar -->
-  <!-- end sidbar -->
 
-  <!-- strat content -->
   <div class="bg-gray-100 flex-1 p-6 md:mt-16"> 
 
     <section class="bg-white dark:bg-gray-900">
@@ -104,57 +60,62 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
-                        <input type="text" name="title" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Apple iMac 27&ldquo;" placeholder="Type product name" required="">
+                        <input type="text" name="title" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="Type product name" required="">
                     </div>
-                    <!-- <div class="w-full">
-                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
-                        <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Apple" placeholder="Product brand" required="">
-                    </div> -->
                     <div class="w-full">
                       <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
                       <input type="file" name="image" />
                     </div>
                     <div class="w-full">
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="2999" placeholder="$299" required="">
+                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="$299" required="" min="0">
                     </div>
-                    <div>
-                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                        <select name="categories" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="Sport">Sport</option>
-                            <option value="Business">Business</option>
-                            <option value="Casual">Casual</option>
-                        </select>
+
+                    <!-- Categories -->
+                    <div class="w-full">
+                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categories</label>
+                        <div id="categories-wrapper">
+                            <input type="text" name="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Add category">
+                        </div>
+                        <button type="button" onclick="addCategoryInput()" class="text-sm text-teal-600">Add another category</button>
                     </div>
-                    <div>
-                      <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color</label>
-                      <select name="color" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                          <option selected="Red">Red</option>
-                          <option value="Gray">Gray</option>
-                          <option value="Blue">Blue</option>
-                          <option value="Yellow">Yellow</option>
-                          <option value="Violet">Violet</option>
-                      </select>
-                  </div>
-                  <div>
-                    <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
-                    <select name="size" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option selected="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
-                </div>
+
+                    <!-- Colors -->
+                    <div class="w-full">
+                        <label for="colors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Colors</label>
+                        <div id="colors-wrapper">
+                            <input type="text" name="color" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Add color">
+                        </div>
+                        <button type="button" onclick="addColorInput()" class="text-sm text-teal-600">Add another color</button>
+                    </div>
+
+                    <!-- Sizes -->
+                    <div class="w-full">
+                        <label for="sizes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sizes</label>
+                        <div id="sizes-wrapper">
+                            <input type="text" name="size" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Add size">
+                        </div>
+                        <button type="button" onclick="addSizeInput()" class="text-sm text-teal-600">Add another size</button>
+                    </div>
+
+                    <!-- Collections -->
+                    <div class="w-full">
+                        <label for="collections" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Collections</label>
+                        <div id="collections-wrapper">
+                            <input type="text" name="collections" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Add collection">
+                        </div>
+                        <button type="button" onclick="addCollectionInput()" class="text-sm text-teal-600">Add another collection</button>
+                    </div>
 
                     <div class="sm:col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                        <textarea name="desc" id="description" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a product description here...">Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US</textarea>
+                        <textarea name="desc" id="description" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a product description here..."></textarea>
                     </div>
                     <div>
-                      <label for="instock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instock</label>
-                      <select name="stock" id="instock" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                          <option value="true">true</option>
-                          <option value="false">false</option>
+                      <label for="instock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">In stock</label>
+                      <select name="inStock" id="instock" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                          <option value="true">True</option>
+                          <option value="false">False</option>
                       </select>
                   </div>
                 </div>
@@ -162,18 +123,54 @@
                     <button type="submit" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Add product
                     </button>
-                   
                 </div>
             </form>
         </div>
       </section>
-    
-        
   </div>
-  <!-- end content -->
-
 </div>
-<!-- end wrapper -->
+
+<script>
+function addCategoryInput() {
+  const wrapper = document.getElementById('categories-wrapper');
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.name = 'categories';
+  input.className = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
+  input.placeholder = 'Add category';
+  wrapper.appendChild(input);
+}
+
+function addColorInput() {
+  const wrapper = document.getElementById('colors-wrapper');
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.name = 'color';
+  input.className = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
+  input.placeholder = 'Add color';
+  wrapper.appendChild(input);
+}
+
+function addSizeInput() {
+  const wrapper = document.getElementById('sizes-wrapper');
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.name = 'size';
+  input.className = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
+  input.placeholder = 'Add size';
+  wrapper.appendChild(input);
+}
+
+function addCollectionInput() {
+  const wrapper = document.getElementById('collections-wrapper');
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.name = 'collections';
+  input.className = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
+  input.placeholder = 'Add collection';
+  wrapper.appendChild(input);
+}
+</script>
 
 </body>
 </html>

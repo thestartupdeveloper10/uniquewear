@@ -3,17 +3,58 @@ const router = express.Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
+const { uploadFile, deleteFile, getObjectSignedUrl } = require("../config/s3") 
+
+const Products = require('../models/Product')
 
 router.get('/',(req, res) => {
     res.render('index')
 })
 
-router.get('/men',(req, res) => {
-    res.render('men_intro')
+router.get('/men', async (req, res) => {
+  const tuxedoProducts = await Products.find({ categories: { $in: ["Tuxedo_intro"] } });
+  const watchProducts = await Products.find({ categories: { $in: ["Watches"] } });
+
+  // Randomly select a tuxedo product
+  const randomTuxedoIndex = Math.floor(Math.random() * tuxedoProducts.length);
+  const tuxedoProduct = tuxedoProducts[randomTuxedoIndex];
+
+  // Randomly select a watch product
+  const randomWatchIndex = Math.floor(Math.random() * watchProducts.length);
+  const watchProduct = watchProducts[randomWatchIndex];
+
+  if (tuxedoProduct) {
+    tuxedoProduct.imgUrl = await getObjectSignedUrl(tuxedoProduct.img);
+  }
+
+  if (watchProduct) {
+    watchProduct.imgUrl = await getObjectSignedUrl(watchProduct.img);
+  }
+
+  res.render('men_intro', {
+    tuxedoProduct,
+    watchProduct
+  });
+});
+
+router.get('/men/tuxedo', async (req, res) => {
+    const tuxedos = await Products.find({categories:"Tuxedo"}).limit(3)
+    for (let tuxedo of tuxedos) {
+      tuxedo.imgUrl = await getObjectSignedUrl(tuxedo.img)
+    }
+    res.render('men_tuxedo',{
+      tuxedos
+    })
 })
 
-router.get('/men/tuxedo',(req, res) => {
-    res.render('men_tuxedo')
+router.get('/men/tuxedo/all', async (req, res) => {
+  const tuxedos = await Products.find({categories:"Tuxedo"})
+  for (let tuxedo of tuxedos) {
+    tuxedo.imgUrl = await getObjectSignedUrl(tuxedo.img)
+  }
+  res.render('allTuxedos',{
+    tuxedos
+  })
 })
 
 router.get('/men/men_watches',(req, res) => {
