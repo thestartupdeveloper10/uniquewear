@@ -1,16 +1,16 @@
 <section id="Projects"
     class="w-full mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center mt-10 mb-5">
 
-    <% tuxedos.forEach(tuxedo => { %>
+    <% watches.forEach(watch => { %>
         <div class="w-80 bg-white shadow-md  duration-500  hover:shadow-xl">
             <a href="#">
-                <img src="<%=tuxedo.imgUrl%>"
+                <img src="<%=watch.imgUrl%>"
                         alt="Product" class="h-80 w-80 object-cover " />
                 <div class="px-4 py-3 w-80">
                     <span class="text-gray-400 mr-3 uppercase text-xs">Brand</span>
-                    <p class="text-lg font-bold text-black truncate block capitalize"><%= tuxedo.title %></p>
+                    <p class="text-lg font-bold text-black truncate block capitalize"><%= watch.title %></p>
                     <div class="flex items-center">
-                        <p class="text-lg font-semibold text-black cursor-auto my-3">$<%= tuxedo.price %></p>
+                        <p class="text-lg font-semibold text-black cursor-auto my-3">$<%= watch.price %></p>
                         <!-- <del>
                             <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
                         </del> -->

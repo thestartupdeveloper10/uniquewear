@@ -7,8 +7,12 @@ const { uploadFile, deleteFile, getObjectSignedUrl } = require("../config/s3")
 
 const Products = require('../models/Product')
 
-router.get('/',(req, res) => {
-    res.render('index')
+router.get('/', async (req, res) => {
+    const newProducts = await Products.find().limit(10);
+    for (let newProduct of newProducts) {
+      newProduct.imgUrl = await getObjectSignedUrl(newProduct.img)
+    }
+    res.render('index',{ newProducts })
 })
 
 router.get('/men', async (req, res) => {
@@ -38,28 +42,66 @@ router.get('/men', async (req, res) => {
 });
 
 router.get('/men/tuxedo', async (req, res) => {
+  const classicFront = await Products.find({title:"Classic Black Tie Tuxedo"})
+  for (let front of classicFront) {
+    front.imgUrl = await getObjectSignedUrl(front.img)
+  }
     const tuxedos = await Products.find({categories:"Tuxedo"}).limit(3)
     for (let tuxedo of tuxedos) {
       tuxedo.imgUrl = await getObjectSignedUrl(tuxedo.img)
     }
     res.render('men_tuxedo',{
-      tuxedos
+      tuxedos,
+      classicFront
     })
 })
 
 router.get('/men/tuxedo/all', async (req, res) => {
+  
   const tuxedos = await Products.find({categories:"Tuxedo"})
   for (let tuxedo of tuxedos) {
     tuxedo.imgUrl = await getObjectSignedUrl(tuxedo.img)
   }
   res.render('allTuxedos',{
-    tuxedos
+    tuxedos,
+    
   })
 })
 
-router.get('/men/men_watches',(req, res) => {
-    res.render('men_watches')
+router.get('/men/men_watches',async (req, res) => {
+  const watches = await Products.find({categories:"Watches"}).limit(3)
+  const watches_second = await Products.find({categories:"Watches"}).sort({
+    createdAt:-1}).limit(4)
+  const watches_third = await Products.find({categories:"Watches"}).sort({
+      createdAt:1}).limit(2)
+  for (let watch of watches) {
+    watch.imgUrl = await getObjectSignedUrl(watch.img)
+  }
+
+  for (let watch of watches_second) {
+    watch.imgUrl = await getObjectSignedUrl(watch.img)
+  }
+
+  for (let watch of watches_third ) {
+    watch.imgUrl = await getObjectSignedUrl(watch.img)
+  }
+    res.render('men_watches',{
+      watches,
+      watches_second,
+      watches_third
+    })
 })
+
+router.get('/men/watches/all', async (req, res) => {
+  const watches = await Products.find({categories:"Watches"})
+  for (let watch of watches) {
+    watch.imgUrl = await getObjectSignedUrl(watch.img)
+  }
+  res.render('allWatches',{
+    watches
+  })
+})
+
 
 router.get('/product_check',(req, res) => {
     res.render('product_check')

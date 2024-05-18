@@ -10,7 +10,7 @@
       <div class="tuxedo lg:col-span-4 relative w-full h-[480px]">
         <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
         <img src="<%= tuxedoProduct.imgUrl %>" alt="" class="h-full bg-cover bg-no-repeat object-cover w-full" height="400px">
-        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/watch"><%= tuxedoProduct.title %></a>
+        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/tuxedo"><%= tuxedoProduct.categories.includes('Tuxedo') ? 'Tuxedo' : tuxedoProduct.categories[0] %></a>
       </div>
     <% } %>
   
@@ -18,7 +18,7 @@
       <div class="watch lg:col-span-2 relative h-[480px]">
         <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
         <img src="<%= watchProduct.imgUrl %>" alt="" class="h-full bg-cover bg-no-repeat object-cover w-full" height="400px">
-        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/watch"><%= watchProduct.title %></a>
+        <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/men_watches"><%= watchProduct.categories.includes('Watches') ? 'Watches' : watchProduct.categories[0] %></a>
       </div>
     <% } %>
   </div>
