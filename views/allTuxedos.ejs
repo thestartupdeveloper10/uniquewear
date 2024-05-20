@@ -2,10 +2,11 @@
     class="w-full mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center mt-10 mb-5">
 
     <% tuxedos.forEach(tuxedo => { %>
-        <div class="w-80 bg-white shadow-md  duration-500  hover:shadow-xl">
-            <a href="#">
+        <div class="w-80 bg-white shadow-md  duration-500  hover:shadow-xl mt-4">
+            <a href="/men/tuxedo/<%= tuxedo._id %>">
                 <img src="<%=tuxedo.imgUrl%>"
                         alt="Product" class="h-80 w-80 object-cover " />
+                    </a>
                 <div class="px-4 py-3 w-80">
                     <span class="text-gray-400 mr-3 uppercase text-xs">Brand</span>
                     <p class="text-lg font-bold text-black truncate block capitalize"><%= tuxedo.title %></p>
@@ -23,7 +24,7 @@
                             </svg></div>
                     </div>
                 </div>
-            </a>
+           
         </div>
     <% }) %>
   

@@ -1,17 +1,17 @@
-<div class="lg:grid lg:grid-cols-2 grid grid-cols-1 md:grid-cols-2">
+<div class="lg:grid lg:grid-cols-2 grid grid-cols-1 md:grid-cols-2 md:px-8 px-4">
     <div class="flex flex-col gap-1">
-        <div>
-            <img src="../imgs/men/tuxedo/black2.jpg" alt="">
+        <div class=" w-full flex flex-col items-center justify-center bg-[#f7f8f2]">
+            <div class="h-[500px] md:w-[500px] w-fit py-10">
+                <img src="<%= single_product_imgUrl %>" alt="product_check" class="object-contain h-full w-full bg-no-repeat"></div>
         </div>
-        <div>
-            <img src="../imgs/men/tuxedo/black2.jpg" alt="">
-        </div>
+        
     </div>
-    <div class="mmd:mx-16 mx-8  py-6 flex flex-col items-center justify-start">
-        <div>
+    <div class="md:mx-16 mx-8  py-6 flex flex-col items-center justify-start">
+        <div class="md:px-8 px-4">
             <div>
-                <h1>Black tuxedo</h1>
-                <h1>$1190</h1>
+                <h1><%= single_product.title %></h1>
+                <h1 class="mt-2">$<%= single_product.price %></h1>
+                <h2 class="mt-4 text-wrap"><%= single_product.desc %></h2>
             </div>
             <div class="flex flex-col gap-3 mt-10 w-[400px]">
                 <h1>Color: <span>Navy</span></h1>
@@ -26,11 +26,10 @@
                 </select>
                </div>
                 <h1>View the <a href="" class="underline">size guide</a></h1>
-                <button type="button" class="text-white w-auto md:w-[400px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADD TO CART</button>
+                <button type="button" class="text-white w-auto bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADD TO CART</button>
                 <h1 class="text-sm">Order by 12PM ET 12/20 to receive by 12/22, with complimentary Next Day shipping.</h1>
             </div>
             <div class="gap-5 flex flex-col mt-10">
-                <h1> <a href="" class="hover:underline">PRODUCT DETAILS</a> </h1>
                 <h1> <a href="" class="hover:underline">FIND IN STORE</a></h1>
                 <h1> <a href="" class="hover:underline">CONTACT US</a></h1>
             </div>

@@ -3,9 +3,10 @@
 
     <% watches.forEach(watch => { %>
         <div class="w-80 bg-white shadow-md  duration-500  hover:shadow-xl">
-            <a href="#">
+            <a href="/men/watches/<%= watch._id %>">
                 <img src="<%=watch.imgUrl%>"
                         alt="Product" class="h-80 w-80 object-cover " />
+                    </a>
                 <div class="px-4 py-3 w-80">
                     <span class="text-gray-400 mr-3 uppercase text-xs">Brand</span>
                     <p class="text-lg font-bold text-black truncate block capitalize"><%= watch.title %></p>
@@ -23,7 +24,7 @@
                             </svg></div>
                     </div>
                 </div>
-            </a>
+           
         </div>
     <% }) %>
   

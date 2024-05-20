@@ -50,9 +50,15 @@ router.get('/men/tuxedo', async (req, res) => {
     for (let tuxedo of tuxedos) {
       tuxedo.imgUrl = await getObjectSignedUrl(tuxedo.img)
     }
+    const classicTwo = await Products.find({categories:"Tuxedo_intro"}).sort({
+      createdAt:-1}).limit(2)
+      for (let two of classicTwo) {
+        two.imgUrl = await getObjectSignedUrl(two.img)
+      }
     res.render('men_tuxedo',{
       tuxedos,
-      classicFront
+      classicFront,
+      classicTwo
     })
 })
 
@@ -68,12 +74,35 @@ router.get('/men/tuxedo/all', async (req, res) => {
   })
 })
 
-router.get('/men/men_watches',async (req, res) => {
+router.get('/men/tuxedo/:id', async (req, res) => {
+  const single_product = await Products.findOne({ _id: req.params.id });
+
+  const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)
+  
+  res.render('product_check',{
+    single_product,
+    single_product_imgUrl
+  })
+})
+
+
+
+router.get('/men/watches',async (req, res) => {
   const watches = await Products.find({categories:"Watches"}).limit(3)
+  const watches_first = await Products.find({categories:"Watches_intro"}).limit(2)
   const watches_second = await Products.find({categories:"Watches"}).sort({
     createdAt:-1}).limit(4)
   const watches_third = await Products.find({categories:"Watches"}).sort({
       createdAt:1}).limit(2)
+  const fourth_third = await Products.find({categories:"Watches"}).sort({
+        createdAt:-1}).limit(2)
+
+for (let watch of fourth_third) {
+          watch.imgUrl = await getObjectSignedUrl(watch.img)
+        }
+      for (let watch of watches_first) {
+        watch.imgUrl = await getObjectSignedUrl(watch.img)
+      }
   for (let watch of watches) {
     watch.imgUrl = await getObjectSignedUrl(watch.img)
   }
@@ -88,7 +117,8 @@ router.get('/men/men_watches',async (req, res) => {
     res.render('men_watches',{
       watches,
       watches_second,
-      watches_third
+      watches_third,
+      fourth_third
     })
 })
 
@@ -102,6 +132,16 @@ router.get('/men/watches/all', async (req, res) => {
   })
 })
 
+router.get('/men/watches/:id', async (req, res) => {
+  const single_product = await Products.findOne({ _id: req.params.id });
+
+  const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)
+  
+  res.render('product_check',{
+    single_product,
+    single_product_imgUrl
+  })
+})
 
 router.get('/product_check',(req, res) => {
     res.render('product_check')

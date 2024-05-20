@@ -1115,6 +1115,9 @@ input[type="range"]:active::-webkit-slider-thumb {
 .h-\[480px\] {
   height: 480px;
 }
+.h-\[500px\] {
+  height: 500px;
+}
 .h-\[580px\] {
   height: 580px;
 }
@@ -1126,18 +1129,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 .h-screen {
   height: 100vh;
-}
-.h-\[80dvh\] {
-  height: 80dvh;
-}
-.h-\[100vh\] {
-  height: 100vh;
-}
-.h-\[600px\] {
-  height: 600px;
-}
-.h-\[450px\] {
-  height: 450px;
 }
 .w-1\/2 {
   width: 50%;
@@ -1472,6 +1463,9 @@ input[type="range"]:active::-webkit-slider-thumb {
 .whitespace-nowrap {
   white-space: nowrap;
 }
+.text-wrap {
+  text-wrap: wrap;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1569,6 +1563,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 .border-transparent {
   border-color: transparent;
+}
+.bg-\[\#f7f8f2\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 248 242 / var(--tw-bg-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
@@ -1718,6 +1716,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 .bg-no-repeat {
   background-repeat: no-repeat;
 }
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1791,6 +1793,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 .py-16 {
   padding-top: 4rem;
@@ -2634,6 +2640,11 @@ input[type="range"]:active::-webkit-slider-thumb {
     margin-right: 0px;
   }
 
+  .md\:mx-16 {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -2675,6 +2686,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     display: none;
   }
 
+  .md\:h-\[450px\] {
+    height: 450px;
+  }
+
   .md\:h-\[45dvh\] {
     height: 45dvh;
   }
@@ -2695,8 +2710,8 @@ input[type="range"]:active::-webkit-slider-thumb {
     width: 18rem;
   }
 
-  .md\:w-\[400px\] {
-    width: 400px;
+  .md\:w-\[500px\] {
+    width: 500px;
   }
 
   .md\:w-full {
