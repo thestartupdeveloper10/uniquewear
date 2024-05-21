@@ -1,0 +1,17 @@
+<section>
+  <div class="flex justify-center items-center w-full">
+    <h1>MEN’S SHOES</h1>
+  </div>
+    <div class=" relative w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1">
+      <% shoes.forEach(shoe => { %>
+        <div class="col-span-1 relative md:h-[450px]">
+          <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
+        <img src="<%= shoe.imgUrl %>" alt="" class="bg-cover object-cover w-full h-full bg-no-repeat">
+        <a class="absolute md:bottom-12 bottom-8 z-10 translate-x-[-50%] left-[50%] bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/shoes/<%= shoe._id %>"><%= shoe.title %></a>
+      </div>
+      <% }) %>
+        
+       
+    
+      </div>
+</section>

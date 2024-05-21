@@ -8,12 +8,17 @@ const { uploadFile, deleteFile, getObjectSignedUrl } = require("../config/s3")
 const Products = require('../models/Product')
 
 router.get('/', async (req, res) => {
-    const newProducts = await Products.find().limit(10);
-    for (let newProduct of newProducts) {
-      newProduct.imgUrl = await getObjectSignedUrl(newProduct.img)
-    }
-    res.render('index',{ newProducts })
-})
+  try {
+      const products = await Products.find().limit(10);
+      for (let product of products) {
+          product.imgUrl = await getObjectSignedUrl(product.img);
+      }
+      res.render('index', { products });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Server Error');
+  }
+});
 
 router.get('/men', async (req, res) => {
   const tuxedoProducts = await Products.find({ categories: { $in: ["Tuxedo_intro"] } });
@@ -133,6 +138,78 @@ router.get('/men/watches/all', async (req, res) => {
 })
 
 router.get('/men/watches/:id', async (req, res) => {
+  const single_product = await Products.findOne({ _id: req.params.id });
+
+  const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)
+  
+  res.render('product_check',{
+    single_product,
+    single_product_imgUrl
+  })
+})
+
+
+router.get('/men/shoes',async (req, res) => {
+  const shoes = await Products.find({ categories: { $in: ["Shoes"] } })
+  
+  for (let shoe of shoes) {
+  shoe.imgUrl = await getObjectSignedUrl(shoe.img)
+        }
+    res.render('men_shoes',{
+      shoes,
+    })
+})
+
+router.get('/men/shoes/:id', async (req, res) => {
+  const single_product = await Products.findOne({ _id: req.params.id });
+
+  const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)
+  
+  res.render('product_check',{
+    single_product,
+    single_product_imgUrl
+  })
+})
+
+router.get('/men/shirts',async (req, res) => {
+  const shirts = await Products.find({categories:"Shirts"})
+  
+
+for (let shirt of shirts) {
+  shirt.imgUrl = await getObjectSignedUrl(shirt.img)
+        }
+    res.render('men_shirt',{
+     shirts,
+    })
+})
+
+
+router.get('/men/shirts/:id', async (req, res) => {
+  const single_product = await Products.findOne({ _id: req.params.id });
+
+  const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)
+  
+  res.render('product_check',{
+    single_product,
+    single_product_imgUrl
+  })
+})
+
+
+
+router.get('/men/belts',async (req, res) => {
+  const belts = await Products.find({categories:"Belts"})
+  
+
+for (let belt of belts) {
+  belt.imgUrl = await getObjectSignedUrl(belt.img)
+        }
+    res.render('men_belts',{
+      belts,
+    })
+})
+
+router.get('/men/belts/:id', async (req, res) => {
   const single_product = await Products.findOne({ _id: req.params.id });
 
   const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)

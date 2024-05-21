@@ -2958,6 +2958,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     grid-template-columns: repeat(9, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .lg\:grid-rows-2 {
     grid-template-rows: repeat(2, minmax(0, 1fr));
   }
