@@ -1,0 +1,27 @@
+<section>
+  <div class="first-section uppercase mb-1">
+    <div class=" lg:col-span-4 relative w-full lg:h-[80dvh] md:h-[45dvh] h-[40dvh]">
+      <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
+        <img src="../imgs/front/hero_woman2.jpg" alt="" class="object-cover bg-no-repeat lg:h-[80dvh] md:h-[45dvh] h-[40dvh] w-full">
+        <div class="absolute lg:bottom-12 md:bottom-16 bottom-8 z-10 translate-x-[-50%] left-[50%]  w-auto text-white gap-5 flex flex-col justify-center items-center">
+            <div class="flex justify-center items-center flex-col gap-1">
+                <h1 class="text-2xl font-bold">New season</h1>
+                <h2 class="">Extra 15% off code:rtyri</h2>
+            </div>
+            <a href="">
+                <button class=" text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 rounded-xl border-2 bg-transparent">ShopNow</button>
+            </a>
+        </div>
+    </div>
+    </div>
+    <div class=" relative w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1">
+      <% trousers.forEach(trouser => { %>
+        <div class="col-span-1 relative md:h-[450px] bg-gray-400">
+          <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
+        <img src="<%= trouser.imgUrl %>" alt="" class="bg-cover object-cover w-full h-full bg-no-repeat">
+        <a class="absolute md:bottom-12 bottom-8 z-10 translate-x-[-50%] left-[50%] bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/pants/<%= trouser._id %>"><%= trouser.title %></a>
+      </div>
+      <% }) %>  
+    
+      </div>
+</section>

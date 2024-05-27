@@ -1,6 +1,6 @@
 <div class="first-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-1">
   <% classicFront.forEach(front => { %>
-    <div class=" lg:col-span-4 relative w-full">
+    <div class=" lg:col-span-4 relative w-full bg-gray-400">
       <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
         <img src="<%=front.imgUrl%>" alt="" class="bg-cover object-cover h-full bg-no-repeat">
         <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/tuxedo/<%= front._id %>"><%= front.title %></a>
@@ -10,7 +10,7 @@
     <div class="lg:col-span-3 relative flex flex-col gap-1">
       
       <% classicTwo.forEach(two => { %>
-        <div class="relative">
+        <div class="relative bg-gray-400">
           <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
             <img src="<%=two.imgUrl%>" alt="" class="bg-cover object-cover bg-no-repeat h-full">
         <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/tuxedo/<%= two._id %>"><%= two.title %></a>
@@ -22,7 +22,7 @@
     </div>
     <div class="third-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-1 mt-1">
       <% tuxedos.forEach(tuxedo => { %>
-        <div class="man-3 lg:col-span-3 relative w-full">
+        <div class="man-3 lg:col-span-3 relative w-full bg-gray-400">
           <img src="<%=tuxedo.imgUrl%>" alt="" class="bg-cover object-cover bg-no-repeat h-full">
           <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/tuxedo/<%= tuxedo._id %>"><%= tuxedo.title %></a>
         </div>

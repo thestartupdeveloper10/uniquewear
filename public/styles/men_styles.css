@@ -1,5 +1,6 @@
+/* Base styles */
 .hero-video {
-    height: 70vh;
+    height: 50vh;
     color: white;
     position: relative;
     opacity: 1;
@@ -12,6 +13,7 @@
     background: rgba(15, 21, 37, .8);
     z-index: -1;
 }
+
 .video-words {
     margin: 0 auto;
     padding: 4rem 0;
@@ -19,9 +21,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    
+    text-align: center; /* Ensures text centers on small devices */
 }
-video{
+
+video {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,6 +33,21 @@ video{
     object-fit: cover;
     z-index: -2;
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .hero-video{
+        height: 60vh; 
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .hero-video{
+        height: 70vh; 
+    }
+}
+
 
 .glass{
     background: linear-gradient(135deg,rgba(255,255,255,0.1));
@@ -41,3 +59,4 @@ video{
 .first-section.img{
     height: 500px;
 }
+

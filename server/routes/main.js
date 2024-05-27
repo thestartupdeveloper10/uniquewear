@@ -220,6 +220,30 @@ router.get('/men/belts/:id', async (req, res) => {
   })
 })
 
+
+router.get('/men/pants',async (req, res) => {
+  const trousers = await Products.find({categories:"Trousers"})
+  
+
+for (let trouser of trousers) {
+  trouser.imgUrl = await getObjectSignedUrl(trouser.img)
+        }
+    res.render('men_trousers',{
+      trousers,
+    })
+})
+
+router.get('/men/pants/:id', async (req, res) => {
+  const single_product = await Products.findOne({ _id: req.params.id });
+
+  const  single_product_imgUrl = await getObjectSignedUrl(single_product.img)
+  
+  res.render('product_check',{
+    single_product,
+    single_product_imgUrl
+  })
+})
+
 router.get('/product_check',(req, res) => {
     res.render('product_check')
 })
