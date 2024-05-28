@@ -1,13 +1,14 @@
-<div class="hero-video relative h-[60vh] flex items-center justify-center">
+<section>
+  <div class="hero-video relative h-[60vh] flex items-center justify-center">
     <video src="../imgs/others/clothing_-men.mp4" autoplay loop class="cover" class="z-10"></video>
     <div class="video-words w-[400px]">
 <h1 class="capitalize font-extrabold text-center font-mono text-2xl md:text-4xl">the only way for self confidence</h1>
 <p class="text-center text-sm md:text-base font-mono mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quibusdam? Culpa ab dolor veniam architecto enim possimus reprehenderit id repellat consequatur obcaecati explicabo itaque corporis laboriosam ipsa eaque, perspiciatis veritatis.</p>
     </div>
   </div>
-  <div class="first-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-1 mt-1 h-[480px]">
+  <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-1 mt-1 h-[480px]">
     <% if (tuxedoProduct) { %>
-      <div class="tuxedo lg:col-span-4 relative w-full h-[480px]">
+      <div class="tuxedo col-span-1 lg:col-span-4 relative w-full h-[480px]">
         <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
         <img src="<%= tuxedoProduct.imgUrl %>" alt="" class="h-full bg-cover bg-no-repeat object-cover w-full" height="400px">
         <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/tuxedo"><%= tuxedoProduct.categories.includes('Tuxedo') ? 'Tuxedo' : tuxedoProduct.categories[0] %></a>
@@ -15,14 +16,15 @@
     <% } %>
   
     <% if (watchProduct) { %>
-      <div class="watch lg:col-span-2 relative h-[480px]">
+      <div class="watch col-span-1 lg:col-span-2 relative h-[480px]">
         <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-10"></div>
         <img src="<%= watchProduct.imgUrl %>" alt="" class="h-full bg-cover bg-no-repeat object-cover w-full" height="400px">
         <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150 text-center" href="/men/watches"><%= watchProduct.categories.includes('Watches') ? 'Watches' : watchProduct.categories[0] %></a>
       </div>
     <% } %>
   </div>
-      <div class="third-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-1 mt-1">
+
+      <!-- <div class="third-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-1 mt-1">
         <div class="man-3 lg:col-span-3 relative w-full">
           <img src="../imgs/men/shoes.jpg" alt="" class="bg-cover bg-no-repeat h-full">
         </div>
@@ -33,8 +35,8 @@
           <img src="../imgs/men/watch.jpg" alt="" class="bg-cover bg-no-repeat h-full">
           <a class="absolute bottom-14 md:bottom-12 translate-x-[-50%] left-[50%] z-10 bg-white text-black md:px-8 md:py-4 px-6 py-[10px] hover:bg-gray-300 duration-150" href="/men/men_watches">Watches</a>
         </div>
-      </div>
-      <div class="second-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-1 mt-1">
+      </div> -->
+      <!-- <div class="second-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-1 mt-1">
 <div class="women-2 lg:col-span-2 relative w-full">
   <img src="../imgs/men/ameer-basheer-ABuzWPku1Ug-unsplash.jpg" alt="" class="bg-cover bg-no-repeat object-cover h-full">
 </div>
@@ -44,4 +46,6 @@
 <div class="women-2 lg:col-span-2 relative w-ful">
   <img src="../imgs/men/man-potrait.jpg" alt="" class="bg-cover bg-no-repeat h-full">
 </div>
- </div>
+ </div> -->
+
+</section>

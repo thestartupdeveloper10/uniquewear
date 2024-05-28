@@ -7,9 +7,10 @@ const { uploadFile, deleteFile, getObjectSignedUrl } = require("../config/s3")
 
 const Products = require('../models/Product')
 
-router.get('/', async (req, res) => {
+router.get('/home', async (req, res) => {
   try {
-      const products = await Products.find().limit(10);
+      const products = await Products.find().sort({
+        createdAt:-1}).limit(10);
       for (let product of products) {
           product.imgUrl = await getObjectSignedUrl(product.img);
       }
@@ -51,12 +52,13 @@ router.get('/men/tuxedo', async (req, res) => {
   for (let front of classicFront) {
     front.imgUrl = await getObjectSignedUrl(front.img)
   }
-    const tuxedos = await Products.find({categories:"Tuxedo"}).limit(3)
+    const tuxedos = await Products.find({categories:"Tuxedo"}).sort({
+      createdAt:1}).limit(3)
     for (let tuxedo of tuxedos) {
       tuxedo.imgUrl = await getObjectSignedUrl(tuxedo.img)
     }
     const classicTwo = await Products.find({categories:"Tuxedo_intro"}).sort({
-      createdAt:-1}).limit(2)
+      createdAt:1}).limit(2)
       for (let two of classicTwo) {
         two.imgUrl = await getObjectSignedUrl(two.img)
       }
